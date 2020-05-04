@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>另一种方法博客列表</title>
+</head>
+<body>
+<h2>今日热门</h2>
+<ul>
+    {% for blog in blog_list %}
+        <li>{{ blog.b_title }}</li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

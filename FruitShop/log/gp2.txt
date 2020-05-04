@@ -1,0 +1,2 @@
+2019-10-22 19:23:43,154 - WARNING - !!so
+2019-10-22 19:23:43,154 - WARNING - !!this is warning

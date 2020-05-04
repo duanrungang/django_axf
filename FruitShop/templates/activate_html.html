@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>激活邮件</title>
+</head>
+<body>
+
+<h2>亲爱的{{ username }}用户:</h2>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    感谢您注册FruitShop平台,恭喜您已经成为FruitShop的一员,但是您的账号还未拥有完成的权限,请点击下面的链接进行激活
+</p>
+<br>
+
+<a href="{{ activate_url }}">激活</a>
+
+<p>如上面按钮不可点击，请将下面的地址复制到浏览器</p>
+
+<p>{{ activate_url }}</p>
+
+<h4>Best Wishes</h4>
+<h3>FruitShop团队</h3>
+
+
+</body>
+</html>

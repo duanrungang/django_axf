@@ -1,0 +1,100 @@
+# 客户端接口
+## 登录模块
+- 用户注册
+    - 127.0.0.1:8000/fruit/register/&action=register
+    - post
+    - 参数
+        - 参数           类型
+        - f_name        姓名
+        - f_password    密码
+        - f_age         年龄
+        - f_sex         性别
+        - f_email       邮箱
+        - f_icon        头像
+- 用户激活
+    - 127.0.0.1:8000/fruit/register/&action=activate&token=
+    - get
+        
+- 用户登录
+    - 127.0.0.1:8000/fruit/register/&action=register&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - post
+    - 参数
+        - 用户名   f_name
+        - 密码     f_password
+## 购物车模块
+- post
+- 加入购物车
+    - 127.0.0.1:8000/fruit/carts/&action=add_to_cart&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - goods_id   商品id
+    - goods_num  商品数量
+- 数量增加
+    - 127.0.0.1:8000/fruit/carts/&action=goods_num_up&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - cart_id    商品id
+    - goods_num  商品数量
+- 数量增加
+    - 127.0.0.1:8000/fruit/carts/&action=goods_num_down&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - cart_id    商品id
+    - goods_num  商品数量  
+- 选中
+    - 127.0.0.1:8000/fruit/carts/&action=goods_select&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - cart_id    商品id
+    - cart_is_select   是否选中  True 或者 False(0,1)
+- 全选
+    - 127.0.0.1:8000/fruit/carts/&action=goods_all_select&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - is_all_select   y  或者  n  全选或者全不选
+- 单个删除
+    - 127.0.0.1:8000/fruit/carts/&action=goods_one_del&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - cart_id    商品id (购物车里面的id)
+- 批量删除
+    - 127.0.0.1:8000/fruit/carts/&action=goods_many_del&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - is_many_del   y     是否批量删除
+## 订单模块
+- post
+- 填写用户地址
+    - 127.0.0.1:8000/fruit/orders/&action=add_address&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - address  用户地址
+- 已下单未付款
+    - 127.0.0.1:8000/fruit/orders/&action=ordered&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - addr 收货地址
+- 已付款未发货
+    - 127.0.0.1:8000/fruit/orders/&action=payed&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - is_pay  是否付款  y  
+- 已收货未评论
+    - 127.0.0.1:8000/fruit/orders/&action=received&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - is_receive  是否收到货物 y
+- 已评论未追加评论
+    - 127.0.0.1:8000/fruit/orders/&action=commented&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - id  订单id
+    - comment  评论
+- 追加评论
+    - 127.0.0.1:8000/fruit/orders/&action=add_comment&token=d3f5a791bd1345c6bc7164a25fdc22c9
+    - id 订单id
+    - add_comment  评论
+
+# 服务端接口
+- 获取所有商品类别
+    - 127.0.0.1:8000/server/goodstype/&action=get_goodstypes
+    - get
+- 筛选商品
+    - get
+    - 一级目录进行筛选
+    - 127.0.0.1:8000/server/goods/?typeone=1
+        - 1   水果
+        - 2   饮料
+        - 3   牛奶
+    - 二级目录筛选(可选)
+    - 127.0.0.1:8000/server/goods/?typeone=1&typetwo=1
+    - 1   1
+    - 1   2
+    - 2   3
+    - 2   4
+    - 2   5
+    - 3   6
+    - 3   7
+    - 3   8
+    - 根据规则排序(可选)
+    - 127.0.0.1:8000/server/goods/?typeone=1&sortrule=1
+
+- 已经发货
+    - post
+    - 127.0.0.1:8000/server/orders/&action=send
